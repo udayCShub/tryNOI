@@ -6,7 +6,7 @@
   <title>My First Page</title>
 </head>
 <body>
-  <h1>Hello, !</h1>
+  <h1>, !</h1>
   <p>This is my first HTML page.</p>
 	<script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
@@ -30,7 +30,11 @@ async function fetchData() {
 
     if (docSnap.exists()) {
         const myObj = docSnap.data();
-        alert(myObj.Hi); // "Uday"
+        await setDoc(docRef, {
+           Hi: "Uday",
+           Age: 25
+        });
+
     } else {
         console.log("No such document!");
     }
