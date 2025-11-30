@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Page</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <p>This is my first HTML page.</p>
+	<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC1zYkCsVUtgc1uUctyNrRn9m7dzc85aJA",
+    authDomain: "noi-2025.firebaseapp.com",
+    projectId: "noi-2025",
+    storageBucket: "noi-2025.appspot.com",
+    messagingSenderId: "802884577108",
+    appId: "1:802884577108:web:e8539011266a8e9e480ac1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function fetchData() {
+    const docRef = doc(db, "RD", "Hi");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        const myObj = docSnap.data();
+        alert(myObj.Hi); // "Uday"
+    } else {
+        console.log("No such document!");
+    }
+}
+
+fetchData();
+</script>
+</body>
+</html>
