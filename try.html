@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function fetchData() {
-    const docRef = doc(db, "RD", "Hi");
+    const docRef = doc(db, "2025", "RD");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
